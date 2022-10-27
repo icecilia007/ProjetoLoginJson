@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Login</title>
+</head>
+
+<body>
+    <link rel="stylesheet" href="style.css">
+    <div class="login-box">
+        <h2>Login</h2>
+        <form>
+            <!--Parte de login-->
+            <div class="user-box">
+                <input id="usuarioInput" type="text" name="" required="">
+                <label>Usuário</label>
+            </div>
+            <div class="user-box">
+                <input id="senhaInput" type="password" name="" required="">
+                <label>Senha</label>
+            </div>
+            <a id="loginBotao">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Logar
+            </a>
+            <a id="registroBotao">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Registrar
+            </a>
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                </symbol>
+                <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+                </symbol>
+                <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </symbol>
+            </svg>
+            <!-- notificacao alert-->
+            <div style="display: none !important;" id="alertas"
+                class="alert alert-personalizado d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
+                    <use xlink:href="#exclamation-triangle-fill" />
+                </svg>
+                <div id="textoAlerta"></div>
+            </div>
+        </form>
+    </div>
+
+    <div id="registroTela" class="popup">
+        <div class="register-box login-box">
+            <!-- Então, o site esta responsivo, mas se você olhar pelo toogle devise toolbar-
+          (ctrl+shift+m) ele está bugando e não redimenciona do jeito que planejei
+          parece que o google faz essa extensão e etc, não sei como resolver, enfim, pra testar
+          basta inspecionar o elemento e não selecionar o toogle bar e ficar movimentando a barra do lado. -->
+            <h2>Registro</h2>
+            <form>
+                <!--Parte de registro-->
+
+                <div class="user-box">                                                                                     <!--quando estiver selecionaod ele vai chamar a funcão placeholder passando como
+                                                                                                                                    parametro o usuarioInput para alterar a propriedade placeholder|| 
+                                                                                                                                    quando ele for de-selecionado irá chamar a mesma função onde cairá 
+                                                                                                                                    na condição default do switch setando o parametro de placeholder como 
+                                                                                                                                    em branco-->                                                                        
+                    <input id="usuarioInputRegistro" type="text" name="" required="" value="" onfocus="placeholdered('usuarioInput')" onfocusout="placeholdered()">
+                    <label>Usuário</label>
+                </div>
+                <div class="user-box">
+                    <input id="nomeInputRegistro" type="text" name="" required="" onfocus="placeholdered('nomeInput')" onfocusout="placeholdered()">
+                    <label>Nome Completo</label>
+                </div>
+                <div class="user-box">
+                    <input id="emailInputRegistro" type="text" name="" required="" onfocus="placeholdered('emailInput')" onfocusout="placeholdered()">
+                    <label>Email</label>
+                </div>
+                <div class="user-box">
+                    <input id="senhaInputRegistro" type="password" name="" required="" onfocus="placeholdered('senhaInput')" onfocusout="placeholdered()">
+                    <label>Senha</label>
+                </div>
+                <div class="user-box">
+                    <input id="confirmaSenhaInputRegistro" type="password" name="" required="" onfocus="placeholdered('confirmaSenhaInput')" onfocusout="placeholdered()">
+                    <label>Confirmação de Senha</label>
+                </div>
+                <a id="registrarBotao">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Salvar
+                </a>
+                <a id="fecharBotao">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Fechar
+                </a>
+                <div style="display: none !important;" id="alertas2"
+                class="alert alert-personalizado d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
+                    <use xlink:href="#exclamation-triangle-fill" />
+                </svg>
+                <div id="textoAlerta2"></div>
+            </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+<script src="app.js"></script>
+<script>
+    //Criação de duas váriaveis usuario que receberar o nome de usuario e senha
+    let usuario;
+    let senha;
+    //usuario precisa ser validado, para isso ele tem que ter 3 caracter e senha precisa de 6, caso isso n aconteça ele não roda o resto do login
+    function validar(usuario, senha) {
+        if (usuario.trim().length >= 3 && senha.trim().length >= 6) {
+            return true;
+        }
+    }
+    //funcão que coloca texto "placeholders" em cada parte o formulario a ser preenchido
+    function placeholdered(input){
+        console.log("VAR: "+input);
+        switch(input){
+            case "usuarioInput":
+                document.getElementById("usuarioInputRegistro").placeholder = "min 3 caracteres";
+            break;
+            case "nomeInput":
+                document.getElementById("nomeInputRegistro").placeholder = "min 3 caracteres";
+            break;
+            case "emailInput":
+                document.getElementById("emailInputRegistro").placeholder = "min 5 caracteres";
+            break;
+            case "senhaInput":
+                document.getElementById("senhaInputRegistro").placeholder = "min 6 caracteres";
+            break;
+            case "confirmaSenhaInput":
+                document.getElementById("confirmaSenhaInputRegistro").placeholder = "min 6 caracteres";
+            break;
+            default:
+            document.getElementById("usuarioInputRegistro").placeholder = "";
+            document.getElementById("nomeInputRegistro").placeholder = "";
+            document.getElementById("emailInputRegistro").placeholder = "";
+            document.getElementById("senhaInputRegistro").placeholder = "";
+            document.getElementById("confirmaSenhaInputRegistro").placeholder = "";
+            break;
+        }  
+    }    
+    //as duas funções sao para aparecer o registro, uma aparece e outra mantem ele "escondido"
+    function showRegistro() {
+        document.getElementById("registroTela").style.display = "block";
+    }
+    function fecharRegistro() {
+        document.getElementById("registroTela").style.display = "none";
+    }
+
+    function registrar() {
+        //variaveis para registro |são coletados na tela de registro
+        let usuarioRegistro = document.getElementById("usuarioInputRegistro").value;
+        let nomeRegistro = document.getElementById("nomeInputRegistro").value;
+        let emailRegistro = document.getElementById("emailInputRegistro").value;
+        let senhaRegistro = document.getElementById("senhaInputRegistro").value;
+        let confirmaSenhaRegistro = document.getElementById("confirmaSenhaInputRegistro").value;
+        //condicao de tamanho para cada variavel||o trim é para retirar espaços||
+        if (usuarioRegistro.trim().length >= 3 &&
+            nomeRegistro.trim().length >= 3 &&
+            emailRegistro.trim().length >= 5 &&
+            senhaRegistro.trim().length >= 6 &&
+            confirmaSenhaRegistro.trim().length >= 6 &&
+            //verificação se senha e a senha de confirmação são iguais.
+            //se algo disso der false o registro não faz.
+            senhaRegistro.trim() == confirmaSenhaRegistro.trim()) {
+            //adciona o usuario e fecha a tela de registro
+            if (addUser(usuarioRegistro.trim(), nomeRegistro, emailRegistro.trim(), senhaRegistro.trim())) {
+                fecharRegistro();
+            }
+        }else{
+            //mostra uma mensagem de alerta caso as senhas sejam divergentes.
+            document.getElementById("alertas2").style.display = "block";
+            document.getElementById("textoAlerta2").innerHTML = "Senhas divergentes, tente novamente!";
+        }  
+    }
+    function logar() {
+        //funcao de faz login, pega o valor que esta dentro do input e faz a validação abaixo
+        usuario = document.getElementById("usuarioInput").value;
+        senha = document.getElementById("senhaInput").value;
+        //n entendi esse validar na frente, tipo, ele ta chamando uma função validar e passando esses parametros pra ela?
+        //chama a linha 129 que a função e se der V ele passa pro proximo if, se der F ele da uma tela de aviso textoAlerta (linha 58)
+        if (validar(usuario, senha)) {
+            //chama a função login user que está em app.js linha 16 e caso seja true redireciona para a pagina index.html que nela vai ter o site para ongs
+            if (loginUser(usuario, senha)) {
+                window.location.href = 'index.html';
+            } else {
+                //chama notificação id=alertas 
+                document.getElementById("alertas").style.display = "block";
+                document.getElementById("textoAlerta").innerHTML = "Dados incorretos, verifique-os e tente novamente!";
+            }
+        } else {
+            //chama notificação id=alertas                      é um tipo de display
+            document.getElementById("alertas").style.display = "block";
+            document.getElementById("textoAlerta").innerHTML = "Dados inválidos, verifique-os e tente novamente!";
+        }
+    }
+    //adiona eventos aos botões que quando disparados fazem uma "atividade no site"
+    document.getElementById('loginBotao').addEventListener('click', logar);
+    document.getElementById('registrarBotao').addEventListener('click', registrar);
+    document.getElementById('fecharBotao').addEventListener('click', fecharRegistro);
+    document.getElementById('registroBotao').addEventListener('click', showRegistro);
+</script>
+</html>
